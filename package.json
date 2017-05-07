@@ -1,0 +1,10 @@
+{
+  "name": "shironeko-experience",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {},
+  "license": "MIT",
+  "dependencies": {
+    "mouse-batch-util": "^1.1.0"
+  }
+}
