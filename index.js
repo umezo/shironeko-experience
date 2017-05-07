@@ -17,14 +17,18 @@ async function main () {
     'retry': [
       'judge',
       'button'
-    ]
+    ],
+    'error': [
+      'judge',
+      'button'
+    ],
   };
 
   const images = {};
   const sceneKeys = Object.keys(scenes);
   for ( let keyIndex = 0 ; keyIndex < sceneKeys.length ; keyIndex++ ) {
     const scene = sceneKeys[ keyIndex ];
-    
+
     if(!images[scene]) {
       images[scene] = {};
     }
@@ -39,28 +43,30 @@ async function main () {
 
   while (true) {
     console.log('ss');
-    const ss = batch.bmp2matrix( batch.screenShot() );
+    const ss = batch.screenShot();
     if( batch.detect( images['game-start'].judge, ss ) ) {
-      batch.clickTemplate( images['game-start'].button );
+      await batch.clickTemplate( images['game-start'].button );
+    }
+
+    if( batch.detect( images['in-game'].judge, ss ) ) {
+      batch.down(1260, 550);
+      await batch.sleep(5000);
     }
 
     if( batch.detect( images['result'].judge, ss ) ) {
-      batch.clickTemplate( images['result'].button );
+      await batch.clickTemplate( images['result'].button );
     }
 
-    console.log( 'sleep >')
-    await sleep(500);
-    console.log( 'sleep <')
+    if( batch.detect( images['retry'].judge, ss ) ) {
+      await batch.clickTemplate( images['retry'].button );
+    }
+
+    if( batch.detect( images['error'].judge, ss ) ) {
+      await batch.clickTemplate( images['error'].button );
+    }
+
 
   }
-}
-
-function sleep(time) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve();
-    }, time);
-  });
 }
 
 main();
