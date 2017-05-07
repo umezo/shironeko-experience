@@ -549,9 +549,9 @@ mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mouse-batch-util@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/mouse-batch-util/-/mouse-batch-util-1.1.0.tgz#f638a684106fb9b7e09b650715fc14ed0ff96c34"
+mouse-batch-util@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/mouse-batch-util/-/mouse-batch-util-1.2.0.tgz#6afeafdd0fed8590cdf197f2bd794bda0cf1c8ca"
   dependencies:
     opencv "^6.0.0"
     robotjs "^0.4.7"
